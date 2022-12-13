@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
         xmlns:local="clr-namespace:WpfTest"        
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="MainWindow" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Binding_Show_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -28,8 +28,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Foreground="LightBlue" FontSize="25" FontWeight="Heavy" Content="{Binding NowTime,FallbackValue=1111111111}" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="25"  Foreground="SeaGreen" Text="{Binding NowTime,FallbackValue=2222222222}" FontWeight="Heavy" HorizontalAlignment="Center"/>
+            <Label Grid.Row="0" Grid.Column="0" Foreground="LightBlue" FontSize="15" FontWeight="Heavy" Content="{Binding NowTime,FallbackValue=1111111111}" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="15"  Foreground="SeaGreen" Text="{Binding NowTime,FallbackValue=2222222222}" FontWeight="Heavy" HorizontalAlignment="Center"/>
             <Label Grid.Column="1" Content="{Binding MyText}" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Foreground="GreenYellow"/>
             <TextBox x:Name="TB_1" Grid.Column="1" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Text="{Binding MyText,UpdateSourceTrigger=PropertyChanged}"  />
         </Grid>

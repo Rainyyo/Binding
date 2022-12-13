@@ -31,7 +31,7 @@ namespace WpfTest
             InitializeComponent();//加载MainWindow
 
             Mc.MyText = "Hello";
-            this.DataContext= Mc;   
+            //this.DataContext= mv;   
         }       
 
         public ShowWindow sw;//创建一个对象   
@@ -50,11 +50,11 @@ namespace WpfTest
 
         public MainWindowViewModel mv { get; set; } = new MainWindowViewModel();
 
-        //private void Binding_Show_Loaded(object sender, RoutedEventArgs e)
-        //{   
-        //    this.DataContext = mv;
-            
-        //}
+        private void Binding_Show_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = mv;
+
+        }
 
         /// <summary>
         /// Binding_Test
