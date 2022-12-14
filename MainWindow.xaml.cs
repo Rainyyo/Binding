@@ -26,11 +26,12 @@ namespace WpfTest
     public partial class MainWindow : Window
     {
        
-        public MainWindowViewModel mvvm { get; set; } = new MainWindowViewModel();//实例化一个MainWindowViewModel的变量ShowTime
+        //public MainWindowViewModel mvvm { get; set; } = new MainWindowViewModel();//实例化一个MainWindowViewModel的变量ShowTime
         public MainWindow()
         {
             InitializeComponent();//初始化MainWindow
-            this.DataContext = mvvm; //将实例化好的mvvm变量传给DataContext进行属性Binding 将mvvm中时间和文本传给前端
+            //this.DataContext = mvvm; //将实例化好的mvvm变量传给DataContext进行属性Binding 将mvvm中时间和文本传给前端
+            this.DataContext=new MainWindowViewModel();//另一种表现形式，无需创建新变量
         }    
 
         #region Button_Click 

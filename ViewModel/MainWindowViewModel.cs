@@ -7,9 +7,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
-
+using WpfTest.View;
 
 namespace WpfTest.ViewModel
 {
@@ -19,7 +20,8 @@ namespace WpfTest.ViewModel
 
         public MainWindowViewModel()
         {
-            MyText = "Hello";//初始化MyText的值
+            //MyText = "123789";//初始化mytext的值
+            mytext = "Hello";
             ShowTimer = new DispatcherTimer();//实例化
             ShowTimer.Interval = TimeSpan.FromSeconds(1);//每隔一秒触发一次
             ShowTimer.Tick += ShowTimer_Tick;//创建事件触发器
@@ -27,7 +29,8 @@ namespace WpfTest.ViewModel
         }
 
         #region 接口的实现
-        public event PropertyChangedEventHandler PropertyChanged;//实现接口
+        public event PropertyChangedEventHandler PropertyChanged;//实现数据绑定接口
+
         #endregion
 
         private void ShowTimer_Tick(object sender, EventArgs e)
@@ -39,20 +42,20 @@ namespace WpfTest.ViewModel
         /// <summary> 
         /// 前端 Binding 只能绑定属性名  NowTime
         /// </summary>
-        private string  nowTime;//创建一个来实现前端的Binding
-        
+        private string nowTime;//创建一个来实现前端的Binding
+
         public string NowTime//属性
         {
-			get { return nowTime; }
-			set
-			{ 
-				nowTime = value;
+            get { return nowTime; }
+            set
+            {
+                nowTime = value;
 
                 //this.OnPropertyChanged("NowTime");//改写的方法   在#region OnPropertyChanged中
 
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NowTime"));//自带的方法
             }
-		}
+        }
 
         /// <summary> 
         /// 前端 Binding 只能绑定属性名  MyText
@@ -66,54 +69,76 @@ namespace WpfTest.ViewModel
             set
             {
                 mytext = value;
+                //this.OnPropertyChanged("MyText");
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MyText"));//自带的方法
             }
         }
 
 
+        /*  #region OnPropertyChanged  
 
-        #region OnPropertyChanged  
-        
-         /// <summary>
-         /// 对属性值的更改通知
-         /// </summary>
-         protected virtual void OnPropertyChanged(string propertyName)
-         {
-             VerifyPropertyName(propertyName);
-             PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-             if (propertyChanged != null)
-             {
-                 PropertyChangedEventArgs e = new PropertyChangedEventArgs(propertyName);
-                 propertyChanged(this, e);
-             }
-         }
+          /// <summary>
+          /// 对属性值的更改通知
+          /// </summary>
+          protected virtual void OnPropertyChanged(string propertyName)
+          {
+              VerifyPropertyName(propertyName);
+              PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+              if (propertyChanged != null)
+              {
+                  PropertyChangedEventArgs e = new PropertyChangedEventArgs(propertyName);
+                  propertyChanged(this, e);
+              }
+          }
 
-         protected virtual bool ThrowOnInvalidPropertyName { get; private set; }
+          protected virtual bool ThrowOnInvalidPropertyName { get; private set; }
 
-         public void VerifyPropertyName(string propertyName)
-         {
-             if (TypeDescriptor.GetProperties(this)[propertyName] == null)
-             {
-                 string message = "Invalid property name: " + propertyName;
-                 if (ThrowOnInvalidPropertyName)
-                 {
-                     throw new Exception(message);
-                 }
+          public void VerifyPropertyName(string propertyName)
+          {
+              if (TypeDescriptor.GetProperties(this)[propertyName] == null)
+              {
+                  string message = "Invalid property name: " + propertyName;
+                  if (ThrowOnInvalidPropertyName)
+                  {
+                      throw new Exception(message);
+                  }
 
-                 Debug.Fail(message);
-             }
-         }
+                  Debug.Fail(message);
+              }
+          }
+          #endregion
+      }
+  */
 
-         //public bool CanExecute(object parameter)
-         //{
-         //    throw new NotImplementedException();
-         //}
+        #region 按钮Binding点击事件
 
-         //public void Execute(object parameter)
-         //{
-         //    throw new NotImplementedException();
-         //}
-         #endregion
+        RelayCommand _ActionCommand;
+        public ICommand ActionCommand
+        {
+            get
+            {
+                if (_ActionCommand == null)
+                    _ActionCommand = new RelayCommand(param => this.Action(param as string));
+                return _ActionCommand;
+            }
+        }
+
+        public void Action(string param)
+        {
+            if (param == "Show")
+            {
+                Show();
+            }
+        }
+        /// <summary>
+        /// 定义一个Show方法来实现
+        /// </summary>
+        public void Show()
+        {
+            ShowWindow showWindow= new ShowWindow();
+            showWindow.WindowStartupLocation=WindowStartupLocation.CenterScreen; 
+            showWindow.ShowDialog();
+        }
+        #endregion
     }
-
 }

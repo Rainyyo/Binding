@@ -17,7 +17,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button x:Name="Click_ShowWindow" Content="Click ShowWindow" Grid.Column="0" Width="150" Height="100" Click="ShowWindow_Click"/>
-            <Button x:Name="Binding_ShowWindow" Content="Binding ShowWindow" Grid.Column="1" Width="150" Height="100" Command="{Binding }"/>
+            <Button x:Name="Binding_ShowWindow" Content="Binding ShowWindow" Grid.Column="1" Width="150" Height="100" Command="{Binding ActionCommand}" CommandParameter="Show"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
