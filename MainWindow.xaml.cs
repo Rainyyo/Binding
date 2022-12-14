@@ -25,18 +25,17 @@ namespace WpfTest
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MyClass Mc { get; set; }=new MyClass();
+       
+        public MainWindowViewModel mvvm { get; set; } = new MainWindowViewModel();//实例化一个MainWindowViewModel的变量ShowTime
         public MainWindow()
-        {   
-            InitializeComponent();//加载MainWindow
-
-            Mc.MyText = "Hello";
-            //this.DataContext= mv;   
-        }       
-
-        public ShowWindow sw;//创建一个对象   
+        {
+            InitializeComponent();//初始化MainWindow
+            this.DataContext = mvvm; //将实例化好的mvvm变量传给DataContext进行属性Binding 将mvvm中时间和文本传给前端
+        }    
 
         #region Button_Click 
+        public ShowWindow sw;//创建一个对象
+                             //
         private void ShowWindow_Click(object sender, RoutedEventArgs e)
         {
             sw = new ShowWindow();//实例化Show Window
@@ -48,32 +47,5 @@ namespace WpfTest
         }
         #endregion
 
-        public MainWindowViewModel mv { get; set; } = new MainWindowViewModel();
-
-        private void Binding_Show_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.DataContext = mv;
-
-        }
-
-        /// <summary>
-        /// Binding_Test
-        /// </summary>
-        public class MyClass : INotifyPropertyChanged
-        {
-            public event PropertyChangedEventHandler PropertyChanged;
-
-            private string mytext;
-            public string MyText
-            {
-                get
-                { return mytext; }
-                set
-                {
-                    mytext = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MyText"));
-                }
-            }
-        }
-    }
+        }   
 }

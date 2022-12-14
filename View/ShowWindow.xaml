@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTest.View"
         mc:Ignorable="d"
-        Title="ShowWindow" Height="200" Width="400" ResizeMode="NoResize">
+        Title="ShowWindow" Height="150" Width="300" ResizeMode="NoResize">
     <Grid>      
         <!--分三行-->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition />
+            <RowDefinition Height="0"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <!--第一行设置 用户信息密码-->
@@ -23,15 +23,12 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label Content="用户名:" Grid.Row="0" Grid.Column="0" FontSize="28" Foreground="LightBlue"/>
-            <Label Content="密   码:" Grid.Row="1" Grid.Column="0" FontSize="28" Foreground="LightBlue"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Width="300" FontSize="28"/>
-            <PasswordBox Grid.Row="1" Grid.Column="1" FontSize="28"/>
+            <Label Content="用户名:" Grid.Row="0" Grid.Column="0" FontSize="20" Foreground="LightBlue"/>
+            <Label Content="密   码:" Grid.Row="1" Grid.Column="0" FontSize="20" Foreground="LightBlue"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Width="210" FontSize="20" Margin="5"/>
+            <PasswordBox Grid.Row="1" Grid.Column="1" FontSize="20" Width="210" Margin="5"/>
         </Grid>
-        <Grid Grid.Row="1" >
-            <StackPanel>
-                <TextBlock Height="40" Text=" "/>
-            </StackPanel>
+        <Grid Grid.Row="1" >            
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>

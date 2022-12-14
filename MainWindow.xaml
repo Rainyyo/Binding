@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
         xmlns:local="clr-namespace:WpfTest"        
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Binding_Show_Loaded">
+        Title="MainWindow" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -17,7 +17,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button x:Name="Click_ShowWindow" Content="Click ShowWindow" Grid.Column="0" Width="150" Height="100" Click="ShowWindow_Click"/>
-            <Button x:Name="Binding_ShowWindow" Content="Binding ShowWindow" Grid.Column="1" Width="150" Height="100"/>
+            <Button x:Name="Binding_ShowWindow" Content="Binding ShowWindow" Grid.Column="1" Width="150" Height="100" Command="{Binding }"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -28,10 +28,16 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Foreground="LightBlue" FontSize="15" FontWeight="Heavy" Content="{Binding NowTime,FallbackValue=1111111111}" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="15"  Foreground="SeaGreen" Text="{Binding NowTime,FallbackValue=2222222222}" FontWeight="Heavy" HorizontalAlignment="Center"/>
-            <Label Grid.Column="1" Content="{Binding MyText}" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Foreground="GreenYellow"/>
-            <TextBox x:Name="TB_1" Grid.Column="1" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Text="{Binding MyText,UpdateSourceTrigger=PropertyChanged}"  />
+            <Label Grid.Row="0" Grid.Column="1" Foreground="LightBlue" FontSize="15" FontWeight="Heavy" 
+                   Content="{Binding NowTime,FallbackValue=1111111111}" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center" />
+            
+            <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15"  Foreground="SeaGreen"
+                       Text="{Binding NowTime,FallbackValue=2222222222}"
+                       FontWeight="Heavy" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <Label Grid.Column="0" Content="{Binding MyText}" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Foreground="GreenYellow"/>
+            <TextBox x:Name="TB_1" Grid.Column="0" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Text="{Binding MyText,UpdateSourceTrigger=PropertyChanged}"  />
         </Grid>
 
     </Grid>
