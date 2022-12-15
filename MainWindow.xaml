@@ -35,9 +35,10 @@
             <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15"  Foreground="SeaGreen"
                        Text="{Binding NowTime,FallbackValue=2222222222}"
                        FontWeight="Heavy" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-            <Label Grid.Column="0" Content="{Binding MyText}" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Foreground="GreenYellow"/>
-            <TextBox x:Name="TB_1" Grid.Column="0" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Text="{Binding MyText,UpdateSourceTrigger=PropertyChanged}"  />
+            <TextBox Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" 
+                     Text="{Binding MyText,UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="GreenYellow"
+                   Content="{Binding MyText}"/>            
         </Grid>
 
     </Grid>

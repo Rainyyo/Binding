@@ -24,14 +24,9 @@ namespace WpfTest.ViewModel
             mytext = "Hello";
             ShowTimer = new DispatcherTimer();//实例化
             ShowTimer.Interval = TimeSpan.FromSeconds(1);//每隔一秒触发一次
-            ShowTimer.Tick += ShowTimer_Tick;//创建事件触发器
+            ShowTimer.Tick += ShowTimer_Tick;//创建事件触发器进行订阅  使用方法+= Tab+Tab
             ShowTimer.Start();//启动计时器
         }
-
-        #region 接口的实现
-        public event PropertyChangedEventHandler PropertyChanged;//实现数据绑定接口
-
-        #endregion
 
         private void ShowTimer_Tick(object sender, EventArgs e)
         {
@@ -39,8 +34,15 @@ namespace WpfTest.ViewModel
             //NowTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");//另一种显示的文本格式
         }
 
+        #region 接口的实现
+        public event PropertyChangedEventHandler PropertyChanged;//实现数据绑定接口
+
+        #endregion
+            
+        #region Binding 用到的属性
+        
         /// <summary> 
-        /// 前端 Binding 只能绑定属性名  NowTime
+        /// 前端 Binding 只能绑定属性名  NowTime        
         /// </summary>
         private string nowTime;//创建一个来实现前端的Binding
 
@@ -74,6 +76,22 @@ namespace WpfTest.ViewModel
             }
         }
 
+        /// <summary>
+        /// 如果有同一类的不同变量 公用同一属性值的时候，前端Binding 应显示为{Binding 变量.属性}
+        ///                                              例如Model中有一个Person类的UserName {Binding UserName.Name}
+        ///</summary>
+        private string userName;
+
+        public string UserName
+        {
+            get { return userName; }
+            set
+            {
+                userName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("UserName"));
+            }
+        }
+        #endregion
 
         /*  #region OnPropertyChanged  
 
