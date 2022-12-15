@@ -3,43 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
-        xmlns:local="clr-namespace:WpfTest"        
+        xmlns:local="clr-namespace:WpfTest" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="BindingShow" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/2.jpg">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="Click_ShowWindow" Content="Click ShowWindow" Grid.Column="0" Width="150" Height="100" Click="ShowWindow_Click"/>
-            <Button x:Name="Binding_ShowWindow" Content="Binding ShowWindow" Grid.Column="1" Width="150" Height="100" Command="{Binding ActionCommand}" CommandParameter="Show"/>
-        </Grid>
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="1" Foreground="LightBlue" FontSize="15" FontWeight="Heavy" 
-                   Content="{Binding NowTime,FallbackValue=1111111111}" 
-                   VerticalAlignment="Center" HorizontalAlignment="Center" />
-            
-            <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15"  Foreground="SeaGreen"
-                       Text="{Binding NowTime,FallbackValue=2222222222}"
-                       FontWeight="Heavy" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBox Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" 
-                     Text="{Binding MyText,UpdateSourceTrigger=PropertyChanged}"/>
-            <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="GreenYellow"
-                   Content="{Binding MyText}"/>            
-        </Grid>
+        <TabControl>
+            <TabItem Header="ButtonBinding">
+                <local:ButtonTest/>
+            </TabItem>
+            <TabItem Header="Test_Binding">
+                <local:TextBinding_Test/>
+            </TabItem>            
+            <TabItem Header="其他">
 
+            </TabItem>
+        </TabControl>
+        <Label Grid.Row="1" Content="{Binding NowTime}" HorizontalAlignment="Right" FontWeight="Heavy" Background="LightBlue" Foreground="White"/>
     </Grid>
 </Window>

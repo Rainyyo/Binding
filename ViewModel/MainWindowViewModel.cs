@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
-using WpfTest.View;
 
 namespace WpfTest.ViewModel
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         private DispatcherTimer ShowTimer;//创建一个定时器ShowTimer的变量
+        //public ButtonTest  buttonTest { get; set; }=new ButtonTest();
+        //public TextBinding_Test TextBinding_Test { get; set; } = new TextBinding_Test();
 
         public MainWindowViewModel()
         {

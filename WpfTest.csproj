@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DXHLibrary">
-      <HintPath>..\..\学习资料\课程\DXHLibrary\DXHLibrary(2)\DXHLibrary\DXHLibrary\bin\Debug\DXHLibrary.dll</HintPath>
+      <HintPath>..\学习资料\课程\DXHLibrary\DXHLibrary(2)\DXHLibrary\DXHLibrary\bin\Debug\DXHLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -60,8 +60,14 @@
     </ApplicationDefinition>
     <Compile Include="Model\Person.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="View\ButtonTest.xaml.cs">
+      <DependentUpon>ButtonTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ShowWindow.xaml.cs">
       <DependentUpon>ShowWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TextBinding_Test.xaml.cs">
+      <DependentUpon>TextBinding_Test.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -75,7 +81,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ButtonTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ShowWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TextBinding_Test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,6 +120,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resouce\Images\2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
