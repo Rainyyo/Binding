@@ -19,6 +19,6 @@
         <Button x:Name="Click_ShowWindow" Content="Click ShowWindow" Grid.Column="0" Width="150" Height="100" Click="ShowWindow_Click"/>
         <Button x:Name="Binding_ShowWindow" Content="Binding ShowWindow" Grid.Column="1" Width="150" Height="100" Command="{Binding ActionCommand}" CommandParameter="Show"/>
         <Button x:Name="Click_UsercontrolView" Content="Click UsercontrolView" Grid.Column="0" Grid.Row="1" Width="150" Height="100" Click="UsercontrolViewShow_Click"/>
-        <Button x:Name="Binding_UsercontrolView" Content="Binding UsercontrolView" Grid.Column="1" Grid.Row="1" Width="150" Height="100" Command="{Binding ActionCommand}" CommandParameter="Show_UsercontrolView"/>
+        <Button x:Name="Binding_UsercontrolView" Content="Binding UsercontrolView" Grid.Column="1" Grid.Row="1" Width="150" Height="100" Command="{Binding ActionCommand}" CommandParameter="Show_UsercontrolView" />
     </Grid>
 </UserControl>

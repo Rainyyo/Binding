@@ -43,7 +43,7 @@ namespace WpfTest
         {
             Window userControlWindow = new Window
             {
-                Title = "示例弹窗",
+                Title = "ClicK_UserControl",
                 SizeToContent = SizeToContent.WidthAndHeight,
                 WindowStartupLocation=WindowStartupLocation.CenterScreen,
             };
@@ -56,5 +56,7 @@ namespace WpfTest
             // 显示弹窗
             userControlWindow.Show();
         }
+
+
     }
 }

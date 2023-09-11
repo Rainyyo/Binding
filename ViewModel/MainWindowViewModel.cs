@@ -170,7 +170,7 @@ namespace WpfTest.ViewModel
         {
             Window userControlWindow = new Window
             {
-                Title = "示例弹窗",
+                Title = "Binding  UserControl",
                 SizeToContent = SizeToContent.WidthAndHeight,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen,
             };
