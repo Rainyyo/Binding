@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
+using WpfTest.View;
 
 namespace WpfTest.ViewModel
 {
@@ -148,7 +149,13 @@ namespace WpfTest.ViewModel
             {
                 Show();
             }
+            if (param == "Show_UsercontrolView")
+            {
+                Show_UsercontrolView();
+            }
         }
+
+        
         /// <summary>
         /// 定义一个Show方法来实现
         /// </summary>
@@ -157,6 +164,24 @@ namespace WpfTest.ViewModel
             ShowWindow showWindow= new ShowWindow();
             showWindow.WindowStartupLocation=WindowStartupLocation.CenterScreen; 
             showWindow.ShowDialog();
+        }
+
+        public void Show_UsercontrolView()
+        {
+            Window userControlWindow = new Window
+            {
+                Title = "示例弹窗",
+                SizeToContent = SizeToContent.WidthAndHeight,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+            };
+
+            // 创建并添加UserControl
+            UserControlView userControl = new UserControlView();
+            userControlWindow.Content = userControl;
+
+
+            // 显示弹窗
+            userControlWindow.Show();
         }
         #endregion
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
         xmlns:local="clr-namespace:WpfTest" 
         mc:Ignorable="d"
-        Title="BindingShow" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/2.jpg">
+        Title="BindingShow" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Resouce/Images/2.jpg">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>

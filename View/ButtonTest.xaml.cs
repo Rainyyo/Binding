@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfTest.View;
 
 namespace WpfTest
 {
@@ -37,5 +38,23 @@ namespace WpfTest
             sw.ShowDialog();   //.ShowDialog();将窗口设为模态窗口，并会阻塞程序的执行，直到用户关闭该窗口为止
         }
         #endregion
+
+        private void UsercontrolViewShow_Click(object sender, RoutedEventArgs e)
+        {
+            Window userControlWindow = new Window
+            {
+                Title = "示例弹窗",
+                SizeToContent = SizeToContent.WidthAndHeight,
+                WindowStartupLocation=WindowStartupLocation.CenterScreen,
+            };
+
+            // 创建并添加UserControl
+           UserControlView userControl=new UserControlView();
+            userControlWindow.Content = userControl;
+            
+
+            // 显示弹窗
+            userControlWindow.Show();
+        }
     }
 }
